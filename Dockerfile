@@ -1,9 +1,11 @@
 ### Set Image Ubuntu 15.10
 FROM ubuntu:15.10
 
-#MAINTAINER Bruno Pereira <bruno9pereira@gmail.com>
+MAINTAINER Bruno Pereira <bruno9pereira@gmail.com>
 
 RUN apt-get update
+
+ENV DEBIAN_FRONTEND noninteractive
 
 ##########################################
 ### INSTALL GIT AND BASIC DEPENDENCIES ###
@@ -30,7 +32,7 @@ COPY configs/mysql-config-apt.seed /tmp/mysql-config-apt.seed
 RUN debconf-set-selections /tmp/mysql-config-apt.seed
 
 # INSTALL MYSQL 5.7 REPOSITORY AND UPDATE
-RUN URL='http://dev.mysql.com/get/mysql-apt-config_0.6.0-1_all.deb'; FILE=mktemp;wget "$URL" -qO $FILE && DEBIAN_FRONTEND=noninteractive dpkg -i $FILE; rm $FILE
+RUN URL='http://dev.mysql.com/get/mysql-apt-config_0.6.0-1_all.deb'; FILE=mktemp;wget "$URL" -qO $FILE &&  dpkg -i $FILE; rm $FILE
 RUN apt-get update
 
 # COPY LOCAL FILE TO DOCKER CONTAINER DIRECTORY AND SET SELECTIONS CONFIG FOR MYSQL 5.7 INSTALLATION
@@ -38,7 +40,7 @@ COPY configs/mysqlconf.seed /tmp/mysqlconf.seed
 RUN debconf-set-selections /tmp/mysqlconf.seed
 
 # AND FINALLY INSTALL MYSQL 5.7
-RUN DEBIAN_FRONTEND=noninteractive apt-get install mysql-server -y
+RUN apt-get install mysql-server -y
 
 #####################
 ### INSTALL NGINX ###
@@ -58,11 +60,7 @@ RUN cd opt/ && wget https://nodejs.org/dist/v5.5.0/node-v5.5.0.tar.gz \
     && tar -zxvf node-v5.5.0.tar.gz && rm node-v5.5.0.tar.gz
 RUN cd /opt/node-v5.5.0/ && ./configure && make && make install
 
-
 ###############
 ### MONGODB ###
 ###############
 RUN apt-get install -y mongodb
-
-## Upgrade packages and clean
-#RUN apt-get -y upgrade
