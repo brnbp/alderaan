@@ -64,3 +64,6 @@ RUN cd /opt/node-v5.5.0/ && ./configure && make && make install
 ### MONGODB ###
 ###############
 RUN apt-get install -y mongodb
+
+# startup services
+COPY startup.sh /usr/bin/startup
