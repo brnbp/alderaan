@@ -19,7 +19,7 @@
 
 ###### average time to pulling: 20~25 minutes
 
-#####note
+##### note
 ```this container uses the latest version of nodejs at this time (5.5) and for that reason, 
 it must be compiled, and this take some time, almost 20 minutes.
 if you will not use nodejs, maybe its a good idea change the Dockerfile to remove it,
