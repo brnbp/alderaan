@@ -56,9 +56,8 @@ RUN mv composer.phar /usr/bin/composer
 ##############
 ### NODEJS ###
 ##############
-RUN cd opt/ && wget https://nodejs.org/dist/v5.5.0/node-v5.5.0.tar.gz \
-    && tar -zxvf node-v5.5.0.tar.gz && rm node-v5.5.0.tar.gz
-RUN cd /opt/node-v5.5.0/ && ./configure && make && make install
+RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
+RUN apt-get install -y nodejs
 
 ###############
 ### MONGODB ###
