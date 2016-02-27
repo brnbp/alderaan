@@ -1,0 +1,6 @@
+mysql-server-5.7	mysql-server/root_password	password	
+mysql-server-5.7	mysql-server/root_password_again	password	
+mysql-server-5.7	mysql-server-5.7/postrm_remove_databases	boolean	false
+mysql-server-5.7	mysql-server-5.7/really_downgrade	boolean	false
+mysql-server-5.7	mysql-server-5.7/nis_warning	note	
+mysql-server-5.7	mysql-server-5.7/start_on_boot	boolean	true
