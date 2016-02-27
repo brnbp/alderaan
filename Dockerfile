@@ -48,8 +48,8 @@ RUN apt-get install mysql-server -y
 ### INSTALL NGINX ###
 #####################
 RUN apt-get install nginx -y
-COPY configs/nginx-conf-default /etc/nginx/sites-enabled/default
-COPY configs/php7.0-fpm-pool.d-www.conf /etc/php/7.0/fpm/pool.d/www.conf
+COPY configs/nginx/default /etc/nginx/sites-enabled/default
+COPY configs/php/fpm-pool-www.conf /etc/php/7.0/fpm/pool.d/www.conf
 
 ###############
 ## COMPOSER ###
