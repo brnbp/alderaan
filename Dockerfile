@@ -30,7 +30,7 @@ RUN apt-get install php7.0 php7.0-mysql php7.0-cgi php7.0-fpm php7.0-curl -y --f
 ### INSTALL MYSQL 5.7 ###
 #########################
 # COPY LOCAL FILE TO DOCKER CONTAINER DIRECTORY AND SET SELECTIONS CONFIG FOR REPOSITORY INSTALLATION
-COPY configs/mysql-config-apt.seed /tmp/mysql-config-apt.seed
+COPY configs/mysql/mysql-config-apt.seed /tmp/mysql-config-apt.seed
 RUN debconf-set-selections /tmp/mysql-config-apt.seed
 
 # INSTALL MYSQL 5.7 REPOSITORY AND UPDATE
@@ -38,7 +38,7 @@ RUN URL='http://dev.mysql.com/get/mysql-apt-config_0.6.0-1_all.deb'; FILE=mktemp
 RUN apt-get update
 
 # COPY LOCAL FILE TO DOCKER CONTAINER DIRECTORY AND SET SELECTIONS CONFIG FOR MYSQL 5.7 INSTALLATION
-COPY configs/mysqlconf.seed /tmp/mysqlconf.seed
+COPY configs/mysql/mysqlconf.seed /tmp/mysqlconf.seed
 RUN debconf-set-selections /tmp/mysqlconf.seed
 
 # AND FINALLY INSTALL MYSQL 5.7
