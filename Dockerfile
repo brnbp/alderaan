@@ -12,7 +12,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ##########################################
 RUN apt-get install git curl wget debconf-utils -y
 RUN apt-get install -y --no-install-recommends software-properties-common build-essential
-RUN apt-get install -y g++ libssl-dev apache2-utils
+RUN apt-get install -y g++ libssl-dev apache2-utils vim
 
 #####################
 ### INSTALL PHP 7 ###
@@ -65,4 +65,5 @@ RUN mv composer.phar /usr/bin/composer
 #RUN apt-get install -y mongodb
 
 # startup services
-COPY startup.sh /usr/bin/startup
+CMD ["/etc/init.d/nginx start"]
+#COPY startup.sh /usr/bin/startup
