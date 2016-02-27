@@ -18,11 +18,13 @@ RUN apt-get install -y g++ libssl-dev apache2-utils vim
 ### INSTALL PHP 7 ###
 #####################
 # ADD REPOSITORY FOR PHP 7
-RUN add-apt-repository ppa:ondrej/php -y
-RUN apt-get update
+#RUN add-apt-repository ppa:ondrej/php -y
+#RUN apt-get update
 
 # INSTALL PHP 7
-RUN apt-get install php7.0 php7.0-mysql -y --force-yes
+#RUN apt-get install php7.0 php7.0-mysql -y --force-yes
+
+RUN apt-get install php5 php5-cgi php5-fpm
 
 #########################
 ### INSTALL MYSQL 5.7 ###
@@ -65,5 +67,5 @@ RUN mv composer.phar /usr/bin/composer
 #RUN apt-get install -y mongodb
 
 # startup services
-CMD ["/etc/init.d/nginx start"]
+#CMD ["/etc/init.d/nginx start"]
 #COPY startup.sh /usr/bin/startup
