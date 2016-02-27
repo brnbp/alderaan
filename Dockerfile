@@ -12,19 +12,19 @@ ENV DEBIAN_FRONTEND noninteractive
 ##########################################
 RUN apt-get install git curl wget debconf-utils -y
 RUN apt-get install -y --no-install-recommends software-properties-common build-essential
-RUN apt-get install -y g++ libssl-dev apache2-utils vim
+RUN apt-get install -y g++ libssl-dev vim
 
 #####################
 ### INSTALL PHP 7 ###
 #####################
 # ADD REPOSITORY FOR PHP 7
-#RUN add-apt-repository ppa:ondrej/php -y
-#RUN apt-get update
+RUN add-apt-repository ppa:ondrej/php -y
+RUN apt-get update
 
 # INSTALL PHP 7
-#RUN apt-get install php7.0 php7.0-mysql -y --force-yes
+RUN apt-get install php7.0 php7.0-mysql php7.0-cgi php7.0-fpm php7.0-curl -y --force-yes
 
-RUN apt-get install php5 php5-cgi php5-fpm -y
+#RUN apt-get install php5 php5-cgi php5-fpm -y
 
 #########################
 ### INSTALL MYSQL 5.7 ###
