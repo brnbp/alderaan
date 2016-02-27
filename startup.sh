@@ -1,4 +1,7 @@
 #!/bin/sh
+
+chmod 755 -R /var/www
+chmod -R o+w /var/www/storage
  
 /etc/init.d/mysql start
 /etc/init.d/nginx start
