@@ -48,6 +48,7 @@ RUN apt-get install mysql-server -y
 ### INSTALL NGINX ###
 #####################
 RUN apt-get install nginx -y
+COPY configs/nginx-conf-default /etc/nginx/sites-enabled/default
 
 ###############
 ## COMPOSER ###
