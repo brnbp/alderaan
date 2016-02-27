@@ -49,6 +49,7 @@ RUN apt-get install mysql-server -y
 #####################
 RUN apt-get install nginx -y
 COPY configs/nginx-conf-default /etc/nginx/sites-enabled/default
+COPY configs/php7.0-fpm-pool.d-www.conf /etc/php/7.0/fpm/pool.d/www.conf
 
 ###############
 ## COMPOSER ###
@@ -70,3 +71,6 @@ RUN mv composer.phar /usr/bin/composer
 # startup services
 #CMD ["/etc/init.d/nginx start"]
 #COPY startup.sh /usr/bin/startup
+
+CMD ["chmod", "755", "-R", "/var/www"]
+CMD ["chmod", "-R", "o+w", "/var/www/storage"]
