@@ -24,7 +24,11 @@ RUN apt-get update
 # INSTALL PHP 7
 RUN apt-get install php7.0 php7.0-mysql php7.0-cgi php7.0-fpm php7.0-curl -y --force-yes
 
-#RUN apt-get install php5 php5-cgi php5-fpm -y
+###############
+## COMPOSER ###
+###############
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/bin/composer
 
 #########################
 ### INSTALL MYSQL 5.7 ###
@@ -48,14 +52,12 @@ RUN apt-get install mysql-server -y
 ### INSTALL NGINX ###
 #####################
 RUN apt-get install nginx -y
-COPY configs/nginx/default /etc/nginx/sites-enabled/default
-COPY configs/php/fpm-pool-www.conf /etc/php/7.0/fpm/pool.d/www.conf
 
-###############
-## COMPOSER ###
-###############
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/bin/composer
+# Nginx configs default to use php with root directory /var/www/public/
+COPY configs/nginx/default /etc/nginx/sites-enabled/default
+
+# PHP7.0-FPM configuration file linked with nginx configuration of listening port
+COPY configs/php/fpm-pool-www.conf /etc/php/7.0/fpm/pool.d/www.conf
 
 ##############
 ### NODEJS ###
