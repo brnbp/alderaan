@@ -8,7 +8,7 @@
 #### ``` $ docker run -it -p 8080:80 brunopereira2546/alderaan:latest  startup ```
 
 ##### if you want to mount some dir into container, add the following comand before "startup"
-  -v path/host/dir:path/container/dir
+        -v path/host/dir:path/container/dir
 
 > this Dockerfile contains:
   - Ubuntu 15.10 (wily)
