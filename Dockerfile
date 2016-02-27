@@ -56,13 +56,13 @@ RUN mv composer.phar /usr/bin/composer
 ##############
 ### NODEJS ###
 ##############
-RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
-RUN apt-get install -y nodejs
+#RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
+#RUN apt-get install -y nodejs
 
 ###############
 ### MONGODB ###
 ###############
-RUN apt-get install -y mongodb
+#RUN apt-get install -y mongodb
 
 # startup services
 COPY startup.sh /usr/bin/startup
