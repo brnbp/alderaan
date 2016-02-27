@@ -5,7 +5,10 @@
 ``` $ docker run -i -t foo/bar:0.1 /bin/bash ```
 
 ##### or you can just use it from docker registry (I strongly recommend this way, if you don't wanna make any change to dockerfile)
-#### ``` $ docker run -i -t brunopereira2546/alderaan:latest -p 8080:80 startup ```
+#### ``` $ docker run -it -p 8080:80 brunopereira2546/alderaan:latest  startup ```
+
+##### if you want to mount some dir into container, add the following comand before "startup"
+  -v path/host/dir:path/container/dir
 
 > this Dockerfile contains:
   - Ubuntu 15.10 (wily)
