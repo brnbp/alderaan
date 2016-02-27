@@ -24,7 +24,7 @@ RUN apt-get install -y g++ libssl-dev apache2-utils vim
 # INSTALL PHP 7
 #RUN apt-get install php7.0 php7.0-mysql -y --force-yes
 
-RUN apt-get install php5 php5-cgi php5-fpm
+RUN apt-get install php5 php5-cgi php5-fpm -y
 
 #########################
 ### INSTALL MYSQL 5.7 ###
