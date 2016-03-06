@@ -73,5 +73,5 @@ COPY configs/php/fpm-pool-www.conf /etc/php/7.0/fpm/pool.d/www.conf
 # startup services
 COPY startup.sh /usr/bin/startup
 
-CMD ["chmod", "755", "/usr/bin/startup"]
-CMD ["/usr/bin/startup"]
+RUN chmod +x /usr/bin/startup
+RUN /usr/bin/startup
