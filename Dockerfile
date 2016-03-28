@@ -62,8 +62,8 @@ COPY configs/php/fpm-pool-www.conf /etc/php/7.0/fpm/pool.d/www.conf
 ##############
 ### NODEJS ###
 ##############
-#RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
-#RUN apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
+RUN apt-get install -y nodejs
 
 ###############
 ### MONGODB ###
