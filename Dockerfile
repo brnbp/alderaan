@@ -22,7 +22,7 @@ RUN add-apt-repository ppa:ondrej/php -y
 RUN apt-get update
 
 # INSTALL PHP 7
-RUN apt-get install php7.0 php7.0-mysql php7.0-cgi php7.0-fpm php7.0-curl php7.0-mbstring -y --force-yes
+RUN apt-get install php7.0 php7.0-mysql php7.0-cgi php7.0-fpm php7.0-curl php7.0-mbstring php7.0-xml -y --force-yes
 
 ###############
 ## COMPOSER ###
