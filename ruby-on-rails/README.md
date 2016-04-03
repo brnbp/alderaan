@@ -1,4 +1,4 @@
-### Docker container for development of ruby projects
+### Docker container for development of ruby on rails projects
 --------
 
 > this Dockerfile contains:
