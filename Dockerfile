@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
   curl \
   wget \
   debconf-utils \
-  vim \
+  vim
 
 RUN apt-get install -y --no-install-recommends software-properties-common build-essential
 
@@ -62,7 +62,6 @@ RUN debconf-set-selections /tmp/mysqlconf.seed
 # AND FINALLY INSTALL MYSQL 5.7
 RUN apt-get install mysql-server -y
 
-
 #####################
 ### INSTALL NGINX ###
 #####################
@@ -70,7 +69,6 @@ RUN apt-get install nginx -y
 
 # Nginx configs default to use php with root directory /var/www/public/
 COPY configs/nginx/default /etc/nginx/sites-enabled/default
-
 
 ##############
 ### NODEJS ###
