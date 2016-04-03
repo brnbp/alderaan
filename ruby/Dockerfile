@@ -2,17 +2,30 @@ FROM ubuntu:15.10
 
 MAINTAINER Bruno Pereira <bruno9pereira@gmail.com>
 
-RUN apt-get update
-
 ENV DEBIAN_FRONTEND noninteractive
 
 ##########################################
 ### INSTALL GIT AND BASIC DEPENDENCIES ###
 ##########################################
-RUN apt-get install -y git git-core curl debconf-utils  zlib1g-dev libssl-dev libreadline-dev libyaml-dev libffi-dev
-RUN apt-get install -y --no-install-recommends software-properties-common build-essential libcurl4-openssl-dev
-RUN apt-get install -y libssl-dev vim libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev python-software-properties
+RUN apt-get install && apt-get update -y \
+  git \
+  git-core \
+  curl \
+  debconf-utils \
+  zlib1g-dev \
+  libssl-dev \
+  libreadline-dev \
+  libyaml-dev \
+  libffi-dev \
+  libssl-dev \
+  vim \
+  libsqlite3-dev \
+  sqlite3 \
+  libxml2-dev \
+  libxslt1-dev \
+  python-software-properties
 
+RUN apt-get install -y --no-install-recommends software-properties-common build-essential libcurl4-openssl-dev
 
 ########################
 ## INSTALL Ruby 2.2.3 ##
