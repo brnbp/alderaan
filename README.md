@@ -1,6 +1,6 @@
-### Docker container for development of ruby projects
+## Docker container for development of projects
 
-#### Contains:
-- Ruby 2.2.3
-- Rails 4.2.4
+### Contains:
+- ruby (with rails, nodejs, mongodb and mysql)
+- php (with nginx, composer, mysql, nodejs, mongodb and optimized for laravel projects)
 

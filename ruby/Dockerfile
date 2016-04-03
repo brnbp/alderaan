@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ##########################################
 ### INSTALL GIT AND BASIC DEPENDENCIES ###
 ##########################################
-RUN apt-get install && apt-get update -y \
+RUN apt-get update && apt-get install -y \
   git \
   git-core \
   curl \

@@ -1,3 +1,44 @@
+## Docker container for development of ruby projects
+
+### Contains:
+- Ruby 2.2.3
+- Rails 4.2.4
+- NodeJS 5.6
+- MongoDB
+- MySQL 5.7
+
+### Final Steps
+
+##### And now for the moment of truth. Let's create your first Rails application:
+
+#### If you want to use SQLite (not recommended)
+rails new myapp
+
+#### If you want to use MySQL
+rails new myapp -d mysql
+
+#### If you want to use Postgres
+### Note that this will expect a postgres user with the same username
+### as your app, you may need to edit config/database.yml to match the
+### user you created earlier
+rails new myapp -d postgresql
+
+### Move into the application directory
+cd myapp
+
+### If you setup MySQL or Postgres with a username/password, modify the
+#### config/database.yml file to contain the username/password that you specified
+
+### Create the database
+rake db:create
+
+rails server
+
+# You can now visit http://localhost:3000 to view your new website!
+
+
+
+
 ###### you can simple build and run
 
 ``` $ docker build -t foo/bar:0.1 . ```
