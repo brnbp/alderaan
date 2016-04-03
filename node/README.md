@@ -19,11 +19,11 @@
 
 ``` $ docker build -t foo/bar:0.1 . ```
 
-``` $ docker run -v /path/host/rails-project:/var/www -p 8080:3000 -i -t foo/bar:0.1 ```
+``` $ docker run -v /path/host/node-project:/var/www -p 8080:3000 -i -t foo/bar:0.1 ```
 
 ##### or you can just use it from docker registry
 
-``` $ docker run -v /path/host/rails-project:/var/www -p 8080:3000 -it brunopereira2546/ruby:latest ```
+``` $ docker run -v /path/host/node-project:/var/www -p 8080:3000 -it brunopereira2546/node:latest ```
 
 
 --------
