@@ -23,7 +23,7 @@
 
 ##### or you can just use it from docker registry
 
-``` $ docker run -v /path/host/rails-project:/var/www -p 8080:3000 -it brunopereira2546/rails:latest ```
+``` $ docker run -v /path/host/rails-project:/var/www -p 8080:3000 -it brnbp/rails:latest ```
 
 
 --------
