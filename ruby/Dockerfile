@@ -39,7 +39,7 @@ RUN apt-get install -y nodejs
 ###############
 ### MONGODB ###
 ###############
-#RUN apt-get install -y mongodb
+RUN apt-get install -y mongodb
 
 ###################
 ### GIT CONFIGS ###
