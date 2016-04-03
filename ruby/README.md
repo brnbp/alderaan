@@ -29,11 +29,11 @@
 
 --------
 
-####### Final Steps
+#### Final Steps
 
-###### Let's create your first Rails application:
+##### Let's create your first Rails application:
 
-###### If you want to use MySQL
+##### If you want to use MySQL
 ``` rails new myapp -d mysql ```
 
 ##### Move into the application directory
@@ -42,9 +42,10 @@
 ##### If you setup MySQL with a username/password, modify the
 ###### config/database.yml file to contain the username/password that you specified
 
-##### Create the database
+#### Create the database
 ``` rake db:create ```
 
+##### Up application
 ``` rails server ```
 
 ###### You can now visit http://localhost:3000 to view your website!
