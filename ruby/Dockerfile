@@ -4,6 +4,8 @@ MAINTAINER Bruno Pereira <bruno9pereira@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
+EXPOSE 3000
+
 ##########################################
 ### INSTALL GIT AND BASIC DEPENDENCIES ###
 ##########################################
