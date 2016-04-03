@@ -3,26 +3,38 @@ FROM ubuntu:15.10
 
 MAINTAINER Bruno Pereira <bruno9pereira@gmail.com>
 
-RUN apt-get update
-
 ENV DEBIAN_FRONTEND noninteractive
 
 ##########################################
 ### INSTALL GIT AND BASIC DEPENDENCIES ###
 ##########################################
-RUN apt-get install git curl wget debconf-utils -y
+RUN apt-get update && apt-get install -y \
+  git \
+  curl \
+  wget \
+  debconf-utils \
+  vim \
+
 RUN apt-get install -y --no-install-recommends software-properties-common build-essential
-RUN apt-get install -y g++ libssl-dev vim
 
 #####################
 ### INSTALL PHP 7 ###
 #####################
 # ADD REPOSITORY FOR PHP 7
 RUN add-apt-repository ppa:ondrej/php -y
-RUN apt-get update
 
-# INSTALL PHP 7
-RUN apt-get install php7.0 php7.0-mysql php7.0-cgi php7.0-fpm php7.0-curl php7.0-mbstring php7.0-xml -y --force-yes
+RUN apt-get update && apt-get install -y --force-yes \
+    php7.0-cli \
+    php7.0-fpm \
+    libapache2-mod-php7.0 \
+    php7.0-cgi \
+    php7.0 \
+    php7.0-mbstring \
+    php7.0-xml \
+    php7.0-curl
+    
+# PHP7.0-FPM configuration file linked with nginx configuration of listening port
+COPY configs/php/fpm-pool-www.conf /etc/php/7.0/fpm/pool.d/www.conf
 
 ###############
 ## COMPOSER ###
@@ -48,6 +60,7 @@ RUN debconf-set-selections /tmp/mysqlconf.seed
 # AND FINALLY INSTALL MYSQL 5.7
 RUN apt-get install mysql-server -y
 
+
 #####################
 ### INSTALL NGINX ###
 #####################
@@ -56,8 +69,6 @@ RUN apt-get install nginx -y
 # Nginx configs default to use php with root directory /var/www/public/
 COPY configs/nginx/default /etc/nginx/sites-enabled/default
 
-# PHP7.0-FPM configuration file linked with nginx configuration of listening port
-COPY configs/php/fpm-pool-www.conf /etc/php/7.0/fpm/pool.d/www.conf
 
 ##############
 ### NODEJS ###
@@ -68,10 +79,12 @@ RUN apt-get install -y nodejs
 ###############
 ### MONGODB ###
 ###############
-#RUN apt-get install -y mongodb
+RUN apt-get install -y mongodb
+
+WORKDIR /var/www
 
 # startup services
 COPY startup.sh /usr/bin/startup
 
 RUN chmod +x /usr/bin/startup
-RUN /usr/bin/startup
+CMD /usr/bin/startup
