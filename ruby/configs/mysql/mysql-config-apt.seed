@@ -1,6 +1,6 @@
 mysql-apt-config	mysql-apt-config/select-product	select	Apply
 mysql-apt-config	mysql-apt-config/unsupported-platform	select	abort
-mysql-apt-config	mysql-apt-config/repo-distro	select	ubuntu
+mysql-apt-config	mysql-apt-config/repo-distro	select	debian
 mysql-apt-config	mysql-apt-config/select-tools	select	
-mysql-apt-config	mysql-apt-config/repo-codename	select	wily
+mysql-apt-config	mysql-apt-config/repo-codename	select	jessie
 mysql-apt-config	mysql-apt-config/select-server	select	mysql-5.7
