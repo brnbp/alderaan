@@ -23,9 +23,10 @@ RUN apt-get install && apt-get update -y \
   sqlite3 \
   libxml2-dev \
   libxslt1-dev \
-  python-software-properties
+  python-software-properties \
+  libcurl4-openssl-dev
 
-RUN apt-get install -y --no-install-recommends software-properties-common build-essential libcurl4-openssl-dev
+RUN apt-get install -y --no-install-recommends software-properties-common build-essential
 
 ########################
 ## INSTALL Ruby 2.2.3 ##
