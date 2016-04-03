@@ -4,7 +4,7 @@
 > this Dockerfile contains:
   - Ubuntu 15.10 (wily)
   - Git
-  - Ruby 2.2.3
+  - Ruby 2.3
   - Rails 4.2.4
   - NodeJS 5.6 && npm
   - MongoDB
