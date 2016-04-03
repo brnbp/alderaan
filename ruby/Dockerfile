@@ -1,4 +1,4 @@
-FROM ubuntu:15.10
+FROM ruby:2.3
 
 MAINTAINER Bruno Pereira <bruno9pereira@gmail.com>
 
@@ -28,28 +28,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt-get install -y --no-install-recommends software-properties-common build-essential
 
-########################
-## INSTALL Ruby 2.2.3 ##
-########################
-
-RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-RUN echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-RUN exec $SHELL
-
-RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-RUN echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-RUN exec $SHELL
-
-RUN git clone https://github.com/rbenv/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
-
-RUN rbenv install 2.2.3
-RUN rbenv global 2.2.3
-
-RUN gem install bundler
-
-RUN rbenv rehash
-
 ##############
 ### NODEJS ###
 ##############
@@ -65,21 +43,11 @@ RUN apt-get install -y nodejs
 ### GIT CONFIGS ###
 ###################
 RUN git config --global color.ui true
-RUN git config --global user.name "Bruno Pereira"
-RUN git config --global user.email "bruno9pereira@gmail.com"
-RUN ssh-keygen -t rsa -C "bruno9pereira@gmail.com"
-
-# The next step is to take the newly generated SSH key and add it to your Github account.
-# You want to copy and paste the output of the following command and paste it here.
-RUN cat ~/.ssh/id_rsa.pub
 
 #########################
 ## INSTALL RAILS 4.2.4 ##
 #########################
-
 RUN gem install rails -v 4.2.4
-RUN rbenv rehash
-
 
 #########################
 ### INSTALL MYSQL 5.7 ###
@@ -98,5 +66,3 @@ RUN debconf-set-selections /tmp/mysqlconf.seed
 
 # AND FINALLY INSTALL MYSQL 5.7
 RUN apt-get install mysql-server -y
-
-
