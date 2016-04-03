@@ -86,3 +86,8 @@ RUN debconf-set-selections /tmp/mysqlconf.seed
 RUN apt-get install mysql-server -y
 
 
+# startup services
+COPY startup.sh /usr/bin/startup
+
+RUN chmod +x /usr/bin/startup
+RUN /usr/bin/startup
