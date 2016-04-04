@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-if [-e Gemfile]
+if [ -e Gemfile ]
 then
   service mysql start
   bundle install
