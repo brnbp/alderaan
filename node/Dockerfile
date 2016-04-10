@@ -30,6 +30,7 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y mongodb
 RUN mkdir /data
 RUN mkdir /data/db
+RUN chmod 755 -R /data
 
 ###################
 ### GIT CONFIGS ###
@@ -37,3 +38,9 @@ RUN mkdir /data/db
 RUN git config --global color.ui true
 
 WORKDIR /var/www
+
+# startup services
+COPY startup.sh /usr/bin/startup
+
+RUN chmod +x /usr/bin/startup
+CMD /usr/bin/startup
