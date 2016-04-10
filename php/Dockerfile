@@ -80,6 +80,9 @@ RUN apt-get install -y nodejs
 ### MONGODB ###
 ###############
 RUN apt-get install -y mongodb
+RUN mkdir /data
+RUN mkdir /data/db
+RUN chmod 755 -R /data
 
 WORKDIR /var/www
 

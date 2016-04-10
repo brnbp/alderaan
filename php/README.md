@@ -4,8 +4,9 @@
 
 ``` $ docker run -i -t foo/bar:0.1 /bin/bash ```
 
-##### or you can just use it from docker registry (I strongly recommend this way, if you don't wanna make any change to dockerfile)
-#### ``` $ docker run -it -p 8080:80 brunopereira2546/alderaan:latest /bin/bash ```
+##### or you can just use it from docker registry
+
+#### ``` $ docker run -it -p 8080:80 brnbp/php:latest /bin/bash ```
 
 ##### if you want to mount some dir into container, add the following comand before "startup"
         -v path/host/dir:path/container/dir
