@@ -28,6 +28,8 @@ RUN apt-get install -y nodejs
 ### MONGODB ###
 ###############
 RUN apt-get install -y mongodb
+RUN mkdir /data
+RUN mkdir /data/db
 
 ###################
 ### GIT CONFIGS ###
