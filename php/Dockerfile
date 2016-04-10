@@ -84,6 +84,11 @@ RUN mkdir /data
 RUN mkdir /data/db
 RUN chmod 755 -R /data
 
+RUN git clone git@github.com:TylerBrock/mongo-hacker.git
+RUN cd mongo-hacker
+RUN make && make install
+
+
 WORKDIR /var/www
 
 # startup services
