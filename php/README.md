@@ -1,4 +1,5 @@
 [![](https://images.microbadger.com/badges/image/brnbp/php.svg)](https://microbadger.com/images/brnbp/php "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/brnbp/php.svg)](http://microbadger.com/images/brnbp/php "Get your own version badge on microbadger.com")
 
 ###### you can simple build and run
 
