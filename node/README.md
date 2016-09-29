@@ -1,3 +1,6 @@
+[![](https://images.microbadger.com/badges/image/brnbp/node.svg)](https://microbadger.com/images/brnbp/node "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/brnbp/node.svg)](http://microbadger.com/images/brnbp/node "Get your own version badge on microbadger.com")
+
 ### Docker container for development of nodejs projects
 --------
 
