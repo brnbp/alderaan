@@ -1,3 +1,5 @@
+[![](https://images.microbadger.com/badges/version/brnbp/rails.svg)](http://microbadger.com/images/brnbp/rails "Get your own version badge on microbadger.com")
+
 ### Docker container for development of ruby on rails projects
 --------
 
